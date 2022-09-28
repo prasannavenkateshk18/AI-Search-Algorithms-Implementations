@@ -293,6 +293,15 @@ def get_manhattan_heuristic(node, goal):
     manhattan_dist = i_delta + j_delta
     return manhattan_dist
 
+def geographical_dist(node,goal):
+    i, j = divmod(int(node), 8)
+    i_goal, j_goal = divmod(int(goal), 8)
+    i_delta = (i- i_goal)**2
+    j_delta = (j - j_goal)**2
+
+    geographical_dist = (i_delta + j_delta)**.5
+    return geographical_dist
+
 
 if __name__ == '__main__':
     graph_neighbours = generate_graph()
